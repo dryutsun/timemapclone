@@ -1,6 +1,8 @@
 {
   "development": {
-    "database": "express_auth_development",
+    "user": "postgres",
+    "password": "RBydxoQ51",
+    "database": "timemap_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
