@@ -141,4 +141,6 @@ This will add popups to the map.
     - If that is not possible, it should send me to the individualized "event" page for that that datapoint.
 
 
+REMEMBER TO REMOVE THE CONFIG.JSON FILE
+
 

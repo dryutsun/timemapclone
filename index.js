@@ -6,7 +6,8 @@ const session = require('express-session')
 const passport = require('./config/ppConfig')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
-
+const path = require('path')
+app.use('/static', express.static(path.join(__dirname, 'public')))
 
 // views (ejs and layouts) set up
 app.set('view engine', 'ejs')
@@ -40,16 +41,21 @@ app.use((req, res, next) => {
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
 
-
 // home route
 app.get('/', (req, res)=>{
     res.render('home')
+    console.log("home")
 })
 
-// profile route
-app.get('/profile', isLoggedIn, (req, res)=>{
-    res.render('profile')
-})
+app.use('/profile', require('./controllers/profile'))
+
+
+
+// // profile route
+// app.get('/profile', isLoggedIn, (req, res)=>{
+//     res.render('profile/profile.ejs')
+//     console.log("Profile")
+// })
 
 
 app.listen(3000, ()=>{
