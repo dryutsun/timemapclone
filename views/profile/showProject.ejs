@@ -6,8 +6,9 @@
     </div>
 
     <h2>events</h2>
-        <% if (project && project.events) { %> 
+
         <% project.events.forEach(event => { %>    
+            <li>
             <p>
                 <%= event.title %>
                 <br>
@@ -19,11 +20,8 @@
                 <br>
                 Comments: <%= event.comments %>
             </p>
-    
-
-            <% })} else { %>
-                <h3>No Events Yet!</h3>
-                <% } %> 
+        </li>
+            <% }) %>
 
 <div class="map-container" styles="display:flex; flex-direction: column; align-items: center;">
     <div id='map' style="height: 400px; width: 400px; position: relative;">
@@ -41,5 +39,5 @@ const mapToken = '<%-process.env.MAPBOX_TOKEN%>'
 const events = <%-JSON.stringify(project.events)%>
 console.log(events)
 </script>
-<script src="/static/js/map.js">
+<script src="/static/js/map.js">z
 </script>

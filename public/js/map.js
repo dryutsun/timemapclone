@@ -7,22 +7,24 @@ center: [0,0], // mapbox uses long/lat order
 zoom: 9 
 })
 
-map.addControl(new mapboxgl.NavigationControl());
 
 
 
 
+events.forEach((eventData) => {
+  map.addControl(new mapboxgl.NavigationControl());
 const marker = new mapboxgl.Marker()
-.setLngLat([events[0].locationLon, events[0].locationLat])
+console.log(eventData.location)
+.setLngLat([eventData.locationLon, eventData.locationLat])
 .setPopup(
   new mapboxgl.Popup({ offset: 25 })
-    .setLngLat([events[0].locationLon, events[0].locationLat])
+    .setLngLat([eventData.locationLon, eventData.locationLat])
     // .setHTML(`<h5>${campground.name}</h5><p>${campground.location}</p>`)
     .setMaxWidth("300px")
     .addTo(map)
 )
 .addTo(map);
-
+})
 // const marker = new mapboxgl.Marker()
 //   .setLngLat([events[0].locationLon, events[0].locationLat])
 //   .setPopup(

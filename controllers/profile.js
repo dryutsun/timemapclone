@@ -10,6 +10,9 @@ const event = require('../models/event')
 
 
 
+
+// This should display all projects.
+
 router.get('/', isLoggedIn, (req,res) => {
     db.project.findAll({
         where: { userId: res.locals.currentUser.id}
@@ -26,6 +29,9 @@ router.get('/', isLoggedIn, (req,res) => {
 
 
 // Individual View
+// ! This displays individual projects, but should display all events associated with that project.
+
+
 router.get('/projects/:id', isLoggedIn, (req,res) => {
     db.project.findOne({
         where: {
@@ -34,6 +40,8 @@ router.get('/projects/:id', isLoggedIn, (req,res) => {
         include: [db.event, db.user] // Does it have the foreign key for project somewhere in the model
     })
     .then((project) => {
+        console.log("Success!")
+        console.log(project.events)
         // console.log(project.events)
         res.render('./profile/showProject.ejs', {project: project})
     })
@@ -41,7 +49,24 @@ router.get('/projects/:id', isLoggedIn, (req,res) => {
         console.log(error)
         res.status(400).send("404")
     })
+
+    // db.event.findAll({
+    //     where: {
+    //         projectId: req.params.id 
+    //     },
+    //     include: [db.project, db.user]
+    // })
+    // .then((event) => {
+    //     res.render('./profile/showProject.ejs', { event: event})
+    //     console.log("Success!")
+    // })
+    // .catch((error) => {
+    //     console.log(error)
+    // })
+
 })
+
+// ! NEED TO PASS ALL EVENTS TO INDEX VIEW, WHICH I DID NOT DO?
 
 
 // [ ] - Figure out how to attach entities to the "projects" view, i.e. via joining, or just biting the bullet and giving entity a 
