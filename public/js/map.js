@@ -24,6 +24,14 @@ map.addControl(
   );
 
 
+
+// Find a way to destructure the lngLat and pass it to the "input parameter of long and lat"
+map.on('click', (e) => {
+    console.log(`A click event has occurred at ${e.lngLat}`);
+    console.log(typeof(e.lngLat))
+});
+
+
 events.forEach((eventData) => {
   const marker = new mapboxgl.Marker()
   .setLngLat([eventData.locationLon, eventData.locationLat])
