@@ -22,6 +22,10 @@
         Source: <%= event.sourcedata %>
         <br>
         Comments: <%= event.comments %>
+        <br>
+        <div class="edit-container">
+            <a class="btn btn-success" href="/events/edit/<%= event.id %>" role="button">✎</a>
+        </div>
     </p>
 </li>
     <% }) %>

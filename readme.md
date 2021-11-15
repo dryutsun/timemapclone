@@ -114,7 +114,7 @@ This will add popups to the map.
 
 ## MVP: (CHANGE TO USER STORIES)
 - [ ] I would like to have my models and route stubs created. Forms should display the correct information.
-- [ ]  I would like the map to display the "event" on the map.
+- [x]  I would like the map to display the "event" on the map.
 - [ ]  I would like some rudimentary time-related slider / timeline functionality.
 - [ ]  Ideally, I would like for the user to be able to click on the screen and get lat-lon data for data entry. This should be put into the form.
 

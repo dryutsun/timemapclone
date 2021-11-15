@@ -8,10 +8,12 @@ const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const path = require('path')
 app.use('/static', express.static(path.join(__dirname, 'public')))
+const methodOverride = require('method-override')
 
 // views (ejs and layouts) set up
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+app.use(methodOverride('_method'))
 
 // body parser middelware
 app.use(express.urlencoded({extended:false}))
@@ -48,7 +50,7 @@ app.get('/', (req, res)=>{
 })
 
 app.use('/projects', require('./controllers/projects'))
-
+app.use('/events', require('./controllers/events'))
 
 
 // // profile route

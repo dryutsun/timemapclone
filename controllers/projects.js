@@ -50,15 +50,19 @@ router.get('/:id', isLoggedIn, (req,res) => {
 
 })
 
-router.get('/:id/event/:eventid'), isLoggedIn, (req,res) => {
-    db.event.findOne({ // Find One Event Where PrjectID is the :id and  Eventis id:
-        where: {
-            projectId: req.params.id,
-            id: req.params.eventid
-        },
-        include: [db.project, db.user]
-    })
-}
+// router.get('/:id/event/:eventid'), isLoggedIn, (req,res) => {
+//     db.event.findOne({ // Find One Event Where PrjectID is the :id and  Eventis id:
+//         where: {
+//             projectId: req.params.id,
+//             id: req.params.eventid
+//         },
+//         include: [db.project, db.user]
+//     })
+//     .then((event) => {
+//         console.log(event)
+//         res.render('./')
+//     })
+// }
 
 
 

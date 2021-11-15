@@ -9,9 +9,7 @@ const mapToken = process.env.MAPBOX_TOKEN
 const event = require('../models/event')
 
 
-// PROJECTS DISPLAY
 
-// This should display all projects.
 
 router.get('/', isLoggedIn, (req,res) => {
     db.project.findAll({
@@ -19,7 +17,7 @@ router.get('/', isLoggedIn, (req,res) => {
     })
     .then((project) => {
             if (!project) throw Error()
-            res.render('./projects/index.ejs', {project: project})
+            res.render('./profile/profile.ejs', {project: project})
     })
     .catch((error) => {
             console.error
@@ -33,37 +31,26 @@ router.get('/', isLoggedIn, (req,res) => {
 
 
 router.get('/projects/:id', isLoggedIn, (req,res) => {
-    db.project.findAll({
+    db.project.findOne({
         where: {
             id: req.params.id
         },
         include: [db.event, db.user] // Does it have the foreign key for project somewhere in the model
     })
     .then((project) => {
-        console.log("Success!")
-        console.log(project.events)
         // console.log(project.events)
-        res.render('./projects/show.ejs', {project: project})
+        res.render('./profile/showProject.ejs', {project: project})
     })
     .catch((error) => {
         console.log(error)
         res.status(400).send("404")
     })
-
 })
 
-router.get('/projects/new', (req,res) => {
-    res.render('.')
-})
-
-
-
+router.get('/project')
 
 
 // ! NEED TO PASS ALL EVENTS TO INDEX VIEW, WHICH I DID NOT DO?
-
-
-
 
 
 // [ ] - Figure out how to attach entities to the "projects" view, i.e. via joining, or just biting the bullet and giving entity a 
