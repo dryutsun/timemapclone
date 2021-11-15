@@ -11,6 +11,45 @@ const event = require('../models/event')
 // EVENTS DISPLAY
 
 
+
+
+
+
+
+
+// CREATE GET ROUTE. ASO GETTING PROJECT IDS FOR USER SELECTION.
+router.get('/new', (req,res)=> {
+    db.project.findAll({
+        where: { userId: res.locals.currentUser.id}
+    })
+    .then((project) => {
+        res.render('./events/new.ejs', {project:project})
+    })
+    .catch((error) => {
+        console.error
+        res.status(400).send("404")
+    })
+
+})
+// CREATE NEW POST ROUTE.
+router.post('/new', (req,res)=>{
+    db.event.create({
+        title: req.body.title,
+        date: req.body.date,
+        timeStart: req.body.timeStart,
+        locationLat: req.body.locationLat,
+        locationLon: req.body.locationLon,
+        association: req.body.association,
+        sourcedata: req.body.sourcedata,
+        comments: req.body.comments,
+        userId: res.locals.currentUser.id,
+        projectId: req.body.projectId
+    })
+    .then((events)=>{
+    res.render('./project/index.ejs')
+    })
+})
+
 // INDIVIDUAL EVENT EDIT ROUTE
 router.get('/edit/:id', isLoggedIn, (req,res) => {
     db.event.findOne({
@@ -42,6 +81,7 @@ router.post('/edit/:id', isLoggedIn,(req,res) => {
         res.redirect(`/projects/${event.projectId}`)
     })
 })
+
 
 
 

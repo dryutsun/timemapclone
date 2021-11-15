@@ -113,15 +113,16 @@ This will add popups to the map.
 - [ ] 2021-11-19:
 
 ## MVP: (CHANGE TO USER STORIES)
-- [ ] I would like to have my models and route stubs created. Forms should display the correct information.
+- [x] I would like to have my models and route stubs created. Forms should display the correct information.
+        - Need to stub project routes for new/edit/delete
 - [x]  I would like the map to display the "event" on the map.
-- [ ]  I would like some rudimentary time-related slider / timeline functionality.
-- [ ]  Ideally, I would like for the user to be able to click on the screen and get lat-lon data for data entry. This should be put into the form.
+- [x]  Ideally, I would like for the user to be able to click on the screen and get lat-lon data for data entry. This should be put into the form. This must be done in a "new" view.
 
 ## STRETCH GOALS
 - Possible translation of relational data into graph schema to render a force directed graph into canvas (to show the node to line relationship between events and entities? No fancy stuff, just want to see if it is possible. Will not require external API call.
 - Adding more complex forms of relationships, i.e. "items" that connect people over time and space...perhaps open entiteis up to many to many relationships.
 - Impeccable design. I would like to prototype everything in EJS but perhaps built in React.
+- [ ]  I would like some rudimentary time-related slider / timeline functionality.
 
 ## OBSTACLES
 - Unforseen errors in the data schema. Might I actually need a many to many relationship, have I built the linking table to achieve this?

@@ -28,7 +28,11 @@ map.addControl(
 // Find a way to destructure the lngLat and pass it to the "input parameter of long and lat"
 map.on('click', (e) => {
     console.log(`A click event has occurred at ${e.lngLat}`);
-    console.log(typeof(e.lngLat))
+    console.log(e.lngLat)
+    const lat = document.querySelector("#locationLat")
+    const lon = document.querySelector("#locationLon")
+    lat.value = e.lngLat.lat
+    lon.value = e.lngLat.lng
 });
 
 
