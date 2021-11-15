@@ -9,7 +9,7 @@ const mapToken = process.env.MAPBOX_TOKEN
 const event = require('../models/event')
 
 
-
+// PROJECTS DISPLAY
 
 // This should display all projects.
 
@@ -19,7 +19,7 @@ router.get('/', isLoggedIn, (req,res) => {
     })
     .then((project) => {
             if (!project) throw Error()
-            res.render('./profile/profile.ejs', {project: project})
+            res.render('./projects/index.ejs', {project: project})
     })
     .catch((error) => {
             console.error
@@ -33,7 +33,7 @@ router.get('/', isLoggedIn, (req,res) => {
 
 
 router.get('/projects/:id', isLoggedIn, (req,res) => {
-    db.project.findOne({
+    db.project.findAll({
         where: {
             id: req.params.id
         },
@@ -43,30 +43,27 @@ router.get('/projects/:id', isLoggedIn, (req,res) => {
         console.log("Success!")
         console.log(project.events)
         // console.log(project.events)
-        res.render('./profile/showProject.ejs', {project: project})
+        res.render('./projects/show.ejs', {project: project})
     })
     .catch((error) => {
         console.log(error)
         res.status(400).send("404")
     })
 
-    // db.event.findAll({
-    //     where: {
-    //         projectId: req.params.id 
-    //     },
-    //     include: [db.project, db.user]
-    // })
-    // .then((event) => {
-    //     res.render('./profile/showProject.ejs', { event: event})
-    //     console.log("Success!")
-    // })
-    // .catch((error) => {
-    //     console.log(error)
-    // })
-
 })
 
+router.get('/projects/new', (req,res) => {
+    res.render('.')
+})
+
+
+
+
+
 // ! NEED TO PASS ALL EVENTS TO INDEX VIEW, WHICH I DID NOT DO?
+
+
+
 
 
 // [ ] - Figure out how to attach entities to the "projects" view, i.e. via joining, or just biting the bullet and giving entity a 

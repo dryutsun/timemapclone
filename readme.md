@@ -103,8 +103,8 @@ This will add popups to the map.
 ## SPRINT GOALS:
 
 - [x] 2021-11-11: At this point I would like to have my wireframes, ERD, Sprint Goals, MVP and Stretch goals all mapped out.
-- [ ] 2021-11-12: At this point I would like to have my models and relationships created, I want to seed dummy data, and start/complete stubbing out my controllers/routes and views.
-- [ ] 2021-11-13: At this point I want to start working with the mapbox api in order to get coordinate data and interactivity completed. 
+- [x] 2021-11-12: At this point I would like to have my models and relationships created, I want to seed dummy data, and start/complete stubbing out my controllers/routes and views.
+- [x] 2021-11-13: At this point I want to start working with the mapbox api in order to get coordinate data and interactivity completed. 
 - [ ] 2021-11-14: At this point I want to extend the views to display more pertinent data, i.e. timeline, modals.
 - [ ] 2021-11-15: At this point, I would like to have interactivity functionality completed.
 - [ ] 2021-11-16:

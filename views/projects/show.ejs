@@ -1,0 +1,35 @@
+    <div style="outline: red dotted 1px">
+        <a href="/projects/<%= project.id %>"><h1> <%= project.title %></h1></a>
+        <h3> <%= project.description %></h3>
+    </div>
+
+<div class="map-container" styles="display:flex; flex-direction: column; align-items: center;">
+    <div id='map' style="height: 400px; width: 400px; position: relative;">
+    </div>
+</div>
+
+<h2>EVENTS</h2>
+
+<% project.events.forEach(event => { %>    
+    <li>
+    <p>
+        <%= event.title %>
+        <br>
+        <%= event.date %>
+        <br>
+        <%= event.locationLat %>, <%= event.locationLon %>)
+        <br>
+        Source: <%= event.sourcedata %>
+        <br>
+        Comments: <%= event.comments %>
+    </p>
+</li>
+    <% }) %>
+
+<script>
+const mapToken = '<%-process.env.MAPBOX_TOKEN%>'
+const events = <%-JSON.stringify(project.events)%>
+console.log(events)
+</script>
+<script src="/static/js/map.js">z
+</script>

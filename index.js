@@ -47,7 +47,7 @@ app.get('/', (req, res)=>{
     console.log("home")
 })
 
-app.use('/profile', require('./controllers/profile'))
+app.use('/projects', require('./controllers/projects'))
 
 
 

@@ -6,7 +6,7 @@
 
 <% project.forEach((project)=>{%>
     <div style="outline: red dotted 1px">
-        <a href="/profile/projects/<%= project.id %>"><h1> <%= project.title %></h1></a>
+        <a href="/projects/<%= project.id %>"><h1> <%= project.title %></h1></a>
         <h3> <%= project.description %></h3>
         <small><%= project.createdAt%></small>
         <small><%= project.updatedAt%></small>
