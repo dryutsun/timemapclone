@@ -122,7 +122,8 @@ This will add popups to the map.
 - Possible translation of relational data into graph schema to render a force directed graph into canvas (to show the node to line relationship between events and entities? No fancy stuff, just want to see if it is possible. Will not require external API call.
 - Adding more complex forms of relationships, i.e. "items" that connect people over time and space...perhaps open entiteis up to many to many relationships.
 - Impeccable design. I would like to prototype everything in EJS but perhaps built in React.
-- [ ]  I would like some rudimentary time-related slider / timeline functionality.
+- [ ] I would like some rudimentary time-related slider / timeline functionality.
+- [ ] I either need to create a .js file per view, or write logic to parse when and in what context certain functions should be run.
 
 ## OBSTACLES
 - Unforseen errors in the data schema. Might I actually need a many to many relationship, have I built the linking table to achieve this?

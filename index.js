@@ -45,6 +45,7 @@ app.use('/auth', require('./controllers/auth'))
 
 // home route
 app.get('/', (req, res)=>{
+    res.status()
     res.render('home')
     console.log("home")
 })

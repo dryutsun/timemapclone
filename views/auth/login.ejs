@@ -1,11 +1,22 @@
-<h2>Login</h2>
+<div class="text-center container">
+    <h2>Login</h2>
+    <main class="form-signin">
+        <form action="/auth/login" method="POST">
+            <div class="form-floating">
+                <label for="auth-email">Email</label>
+                <input id="auth-email" class="form-control" type="email" name="email">
+            </div>
+            <div class="form-floating">
+                <label for="auth-password">Password</label>
+                <input id="auth-password" class="form-control" type="password" name="password">
+            </div>
+            <input type="submit" value="Log In" class="w-100 btn btn-lg btn-primary">
+        </form>
+    </main>
+</div>
 
-<form action="/auth/login" method="POST">
-    <label for="auth-email">Email</label>
-    <input id="auth-email" type="email" name="email">
-  
-    <label for="auth-password">Password</label>
-    <input id="auth-password" type="password" name="password">
-  
-    <input type="submit" value="Log In">
-</form>
+<style>
+* {
+    box-sizing: border-box;
+}
+</style>

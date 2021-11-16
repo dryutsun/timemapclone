@@ -19,17 +19,33 @@
 </head>
 <body>
     <header>
-        <h1>Personal.pi</h1>
         <nav>
-            <ul>
-              <% if (!currentUser) { %>
-                <li><a href="/auth/signup">Signup</a></li>
-                <li><a href="/auth/login">Login</a></li>
-              <% } else { %>
-                <li><a href="/auth/logout">Logout</a></li>
-                <li><a href="/projects">Profile</a></li>
-              <% } %>
-            </ul>
+            <header class="p-3 bg-dark text-white">
+              <div class="container">
+                  <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none" style="font-family: 'Archivo'; font-weight:800">
+                      <img src="/static/asset/logo.png" alt="" height="32px" class="bi me-2">
+                    </a>
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                      <li><a href="" class="nav-link px-2 text-white">Why Personal.pi?</a></li>
+                      <li><a href="" class="nav-link px-2 text-white">Documentation</a></li>
+                      <li><a href="" class="nav-link px-2 text-white">Products</a></li>
+                      <li><a href="" class="nav-link px-2 text-white">Solutions</a></li>
+                    </ul>
+                    <div class="text-end">
+                      <% if (!currentUser) { %>
+                        <a href="/auth/signup" class="btn btn-outline-light me-2">Signup</a>
+                        <a href="/auth/login" class="btn btn-warning">Login</a>
+                      <% } else { %>
+                        <a href="/auth/logout" class="btn btn-outline-light me-2">Logout</a>
+                        <a href="/projects" class="btn btn-warning">Profile</a>
+                      <% } %>
+                      </div>
+
+                    </div>
+       
+              </div>
+            </header>
           </nav>
     </header>
     <%- include('partials/alerts') %>

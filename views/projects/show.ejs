@@ -1,10 +1,11 @@
-    <div style="outline: red dotted 1px">
-        <a href="/projects/<%= project.id %>"><h1> <%= project.title %></h1></a>
-        <h3> <%= project.description %></h3>
+    <div class="text-center container">
+    <div>
+        <a href="/projects/<%= project.id %>"><h1 class="archivo"> <%= project.title %></h1></a>
+        <h3 class="archivo"> <%= project.description %></h3>
     </div>
 
 <div class="map-container" styles="display:flex; flex-direction: column; align-items: center;">
-    <div id='map' style="height: 400px; width: 400px; position: relative;">
+    <div id='map' style="height: 400px; position: relative;">
     </div>
 </div>
 
@@ -31,10 +32,16 @@
 </li>
     <% }) %>
 </ul>
+</div>
 <script>
 const mapToken = '<%-process.env.MAPBOX_TOKEN%>'
 const events = <%-JSON.stringify(project.events)%>
 console.log(events)
 </script>
-<script src="/static/js/map.js">
+<script src="/static/js/indexmap.js">
 </script>
+<style>
+    .archivo {
+        font-family: 'Archivo';
+    }
+    </style>

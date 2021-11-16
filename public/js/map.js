@@ -37,6 +37,7 @@ map.on('click', (e) => {
 
 
 events.forEach((eventData) => {
+  console.log([eventData.locationLon, eventData.locationLat])
   const marker = new mapboxgl.Marker()
   .setLngLat([eventData.locationLon, eventData.locationLat])
   .setPopup(
