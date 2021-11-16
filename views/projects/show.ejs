@@ -10,10 +10,13 @@
 
 <h2>EVENTS</h2>
 <a class="btn btn-primary" href="/events/new" role="button">Add A New Event</a>
-
+<ul class="list-group">
 <% project.events.forEach(event => { %>    
-    <li>
+    <li class="list-group-item">
     <p>
+        <div class="edit-container">
+            <a class="btn btn-success" href="/events/edit/<%= event.id %>" role="button">✎</a>
+        </div>
         <%= event.title %>
         <br>
         <%= event.date %>
@@ -24,13 +27,10 @@
         <br>
         Comments: <%= event.comments %>
         <br>
-        <div class="edit-container">
-            <a class="btn btn-success" href="/events/edit/<%= event.id %>" role="button">✎</a>
-        </div>
     </p>
 </li>
     <% }) %>
-
+</ul>
 <script>
 const mapToken = '<%-process.env.MAPBOX_TOKEN%>'
 const events = <%-JSON.stringify(project.events)%>

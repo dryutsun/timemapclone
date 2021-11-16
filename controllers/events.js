@@ -18,7 +18,7 @@ const event = require('../models/event')
 
 
 // CREATE GET ROUTE. ASO GETTING PROJECT IDS FOR USER SELECTION.
-router.get('/new', (req,res)=> {
+router.get('/new', isLoggedIn, (req,res)=> {
     db.project.findAll({
         where: { userId: res.locals.currentUser.id}
     })
@@ -32,7 +32,7 @@ router.get('/new', (req,res)=> {
 
 })
 // CREATE NEW POST ROUTE.
-router.post('/new', (req,res)=>{
+router.post('/new', isLoggedIn, (req,res)=>{
     db.event.create({
         title: req.body.title,
         date: req.body.date,

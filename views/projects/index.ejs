@@ -1,25 +1,20 @@
 <h2><%= currentUser.name %>'s Profile</h2>
 
+
+
+<a class="btn btn-primary" href="/projects/new" role="button">Add A New Event</a>
 <h1> Projects: </h1>
 
-<h1><%= currentUser.id %></h1> 
-
+<div class="project-grid">
 <% project.forEach((project)=>{%>
-    <div style="outline: red dotted 1px">
+    <div class="card" style="outline: red dotted 1px; background-color:azure; width: 100%; height: 100%;">
         <a href="/projects/<%= project.id %>"><h1> <%= project.title %></h1></a>
         <h3> <%= project.description %></h3>
         <small><%= project.createdAt%></small>
         <small><%= project.updatedAt%></small>
-        <small></small>
+
     </div>
-
 <%})%>
+</div>
 
-<!-- 
-<script>
-    const mapToken = '<%-process.env.MAPBOX_TOKEN%>'
-    const events = <%-JSON.stringify(project.events)%>
-    console.log(events)
-    </script>
-    <script src="/static/js/indexmap.js">
-    </script> -->
+<link rel="stylesheet" href="/static/css/project-grid.css">

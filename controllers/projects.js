@@ -30,6 +30,21 @@ router.get('/', isLoggedIn, (req,res) => {
 
 // Individual View
 // ! This displays individual projects, but should display all events associated with that project.
+router.get('/new', isLoggedIn, (req,res) => {
+    res.render('./projects/new.ejs')
+})
+
+router.post('/new', isLoggedIn, (req,res) =>{
+    db.project.create({
+        title: req.body.title,
+        description: req.body.description,
+        userId: res.locals.currentUser.id
+    })
+    .then((project)=>{
+        console.log(project)
+    res.redirect('/projects')
+    })
+})
 
 
 router.get('/:id', isLoggedIn, (req,res) => {
@@ -50,42 +65,8 @@ router.get('/:id', isLoggedIn, (req,res) => {
 
 })
 
-// router.get('/:id/event/:eventid'), isLoggedIn, (req,res) => {
-//     db.event.findOne({ // Find One Event Where PrjectID is the :id and  Eventis id:
-//         where: {
-//             projectId: req.params.id,
-//             id: req.params.eventid
-//         },
-//         include: [db.project, db.user]
-//     })
-//     .then((event) => {
-//         console.log(event)
-//         res.render('./')
-//     })
-// }
 
 
 
 
-
-// ! NEED TO PASS ALL EVENTS TO INDEX VIEW, WHICH I DID NOT DO?
-
-
-
-
-
-// [ ] - Figure out how to attach entities to the "projects" view, i.e. via joining, or just biting the bullet and giving entity a 
-
-// INCLUDE
-
-// SELECT *
-// FROM project
-// JOIN event.project_id ON project.id
-// JOIN 
-// JOIN user.project_id ON project.id
-// WHERE id = ?
-
-
-
-
-module.exports = router
+module.exports = router;

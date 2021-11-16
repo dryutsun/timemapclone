@@ -1,54 +1,16 @@
-<form action="/events/edit/<%=event.id%>" method="POST">
+<form action="/projects/new" method="POST">
     <div>  
       <label for="title">Title</label>
       <br>
-      <input type="text" id="title" name="title" value="<%= event.title %>">
+      <input type="text" id="title" name="title" required>
     </div>
 
     <div>  
-        <label for="date">Date: </label>
+        <label for="description">Description: </label>
         <br>
-        <small>Please enter Date in YYYY-MM-DD format.</small>
+        <small>Please write a small blurb about what you are investigating.</small>
         <br>
-        <input type="text" id="date" name="date" value="<%= event.date %>">
-      </div>
-
-      <div>  
-        <label for="timeStart">Time Start</label>
-        <br>
-        <input type="text" id="timeStart" name="timeStart" value="<%= event.timeStart %>">
-      </div>
-
-      <div>  
-        <label for="locationLon">Location Longitude</label>
-        <br>
-        <input type="text" id="locationLon" name="locationLon" value="<%= event.locationLon %>">
-      </div>
-
-      <div>  
-        <label for="locationLat">Location Latitude</label>
-        <br>
-        <input type="text" id="locationLat" name="locationLat" value="<%= event.locationLat %>">
-      </div>
-
-      <div>  
-        <label for="association">Association:</label>
-        <br>
-        <small> Please enter a descriptive tag.</small>
-        <br>
-        <input type="text" id="association" name="association" value="<%= event.association %>">
-      </div>
-
-      <div>  
-        <label for="sourcedata">Source Data: </label>
-        <br>
-        <input type="text" id="sourcedata" name="sourcedata" value="<%= event.sourcedata %>">
-      </div>
-
-      <div>  
-        <label for="comments">Comments:</label>
-        <br>
-        <input type="text" id="comments" name="comments" value="<%= event.comments %>">
+        <input type="text" id="description" name="description" required>
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
