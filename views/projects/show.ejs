@@ -1,6 +1,6 @@
     <div class="text-center container">
     <div>
-        <a href="/projects/<%= project.id %>"><h1 class="archivo"> <%= project.title %></h1></a>
+        <a href="/projects/<%= project.id %>"><h1 class=" display-1 archivo"> <%= project.title %></h1></a>
         <h3 class="archivo"> <%= project.description %></h3>
     </div>
 
@@ -11,25 +11,33 @@
 
 <h2>EVENTS</h2>
 <a class="btn btn-primary" href="/events/new" role="button">Add A New Event</a>
+
 <ul class="list-group">
-<% project.events.forEach(event => { %>    
+<% project.events.forEach(event => { %>   
+
     <li class="list-group-item">
-    <p>
-        <div class="edit-container">
+        <div class="edit-container" style="display: flex; flex-direction: row; justify-content: flex-end;">
             <a class="btn btn-success" href="/events/edit/<%= event.id %>" role="button">✎</a>
+            <form action="/projects/<%= event.id %>/?_method=DELETE" method="POST">
+                <div class="delete-container">
+                    <input class="btn btn-danger" style="color:white;" type="submit" value="✕">
+                </div>
+            </form> 
         </div>
-        <%= event.title %>
-        <br>
-        <%= event.date %>
-        <br>
-        <%= event.locationLat %>, <%= event.locationLon %>)
-        <br>
-        Source: <%= event.sourcedata %>
-        <br>
-        Comments: <%= event.comments %>
-        <br>
-    </p>
-</li>
+            <p>
+
+            <%= event.title %>
+            <br>
+            <%= event.date %>
+            <br>
+            <%= event.locationLat %>, <%= event.locationLon %>)
+            <br>
+            Source: <%= event.sourcedata %>
+            <br>
+            Comments: <%= event.comments %>
+            <br>
+        </p>
+    </li>
     <% }) %>
 </ul>
 </div>
@@ -45,3 +53,4 @@ console.log(events)
         font-family: 'Archivo';
     }
     </style>
+    <link rel="stylesheet" href="/static/css/project-grid.css">

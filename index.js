@@ -13,10 +13,11 @@ const methodOverride = require('method-override')
 // views (ejs and layouts) set up
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
-app.use(methodOverride('_method'))
-
 // body parser middelware
 app.use(express.urlencoded({extended:false}))
+app.use(methodOverride('_method'))
+
+
 
 // session middleware
 app.use(session({
@@ -45,7 +46,6 @@ app.use('/auth', require('./controllers/auth'))
 
 // home route
 app.get('/', (req, res)=>{
-    res.status()
     res.render('home')
     console.log("home")
 })

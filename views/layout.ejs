@@ -20,7 +20,7 @@
 <body>
     <header>
         <nav>
-            <header class="p-3 bg-dark text-white">
+            <header class="p-3 text-white" style="background-color:#D81B60">
               <div class="container">
                   <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                     <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none" style="font-family: 'Archivo'; font-weight:800">
@@ -35,10 +35,10 @@
                     <div class="text-end">
                       <% if (!currentUser) { %>
                         <a href="/auth/signup" class="btn btn-outline-light me-2">Signup</a>
-                        <a href="/auth/login" class="btn btn-warning">Login</a>
+                        <a href="/auth/login" class="btn btn-outline-light me-2">Login</a>
                       <% } else { %>
                         <a href="/auth/logout" class="btn btn-outline-light me-2">Logout</a>
-                        <a href="/projects" class="btn btn-warning">Profile</a>
+                        <a href="/projects" class="btn btn-outline-light me-2">Profile</a>
                       <% } %>
                       </div>
 

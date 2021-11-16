@@ -1,0 +1,18 @@
+<form action="/projects/edit/<%=project.id %>/?_method=PUT" method="POST">
+    <div>  
+        <label for="title">Title</label>
+        <br>
+        <input type="text" id="title" name="title" value="<%= project.title %>">
+      </div>
+  
+      <div>  
+          <label for="description">Description: </label>
+          <br>
+          <small>Please write a small blurb about what you are investigating.</small>
+          <br>
+          <input type="text" id="description" name="description" value="<%= project.description %>">
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

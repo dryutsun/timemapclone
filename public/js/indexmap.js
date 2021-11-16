@@ -20,10 +20,10 @@ map.addControl(
   })
   );
 
-if (events) {
-  // For displaying multiple events which forgoes the requirement for coordinate finding
+
+if (events.length > 1) {
   events.forEach((eventData) => {
-    console.log([eventData.locationLon, eventData.locationLat])
+    // console.log([eventData.locationLon, eventData.locationLat])
     const marker = new mapboxgl.Marker()
     .setLngLat([eventData.locationLon, eventData.locationLat])
     .setPopup(
@@ -34,8 +34,17 @@ if (events) {
         .addTo(map)
     )
     .addTo(map);
-})
+  })
 } else {
+  // map.center()
+  // const lat = document.querySelector("#locationLat")
+  // const lon = document.querySelector("#locationLon")
+  // coordinateLat = lat.value
+  // coordinateLon = lon.value
+  // map.center([lon.value, lat.value])
+  // const marker = new mapboxgl.Marker()
+  //   .setLngLat([coordinateLon, coordinateLat])
+
   map.on('click', (e) => {
     console.log(`A click event has occurred at ${e.lngLat}`);
     console.log(e.lngLat)
@@ -43,5 +52,5 @@ if (events) {
     const lon = document.querySelector("#locationLon")
     lat.value = e.lngLat.lat
     lon.value = e.lngLat.lng
-});
+    })
 }

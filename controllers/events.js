@@ -29,7 +29,6 @@ router.get('/new', isLoggedIn, (req,res)=> {
         console.error
         res.status(400).send("404")
     })
-
 })
 // CREATE NEW POST ROUTE.
 router.post('/new', isLoggedIn, (req,res)=>{
@@ -46,7 +45,7 @@ router.post('/new', isLoggedIn, (req,res)=>{
         projectId: req.body.projectId
     })
     .then((events)=>{
-    res.render('./project/index.ejs')
+    res.render('./projects/index.ejs')
     })
 })
 
@@ -62,10 +61,11 @@ router.get('/edit/:id', isLoggedIn, (req,res) => {
 })
 
 // INDIVIDUAL EVENT UPDATE ROUTE
-router.post('/edit/:id', isLoggedIn,(req,res) => {
+// When we put method override (put) its going to look for router.put (same with delete)
+router.put('/edit/:id', isLoggedIn,(req,res) => {
     db.event.findOne({
         where: {id: req.params.id,
-    }})
+}})
 
     .then((event) => {
         event.update({
@@ -82,7 +82,18 @@ router.post('/edit/:id', isLoggedIn,(req,res) => {
     })
 })
 
-
+router.delete('/:id', isLoggedIn, (req,res)=> {
+    db.event.destroy({
+        where: {id: req.params.id}
+    })
+    .then((deletedEvent) => {
+        console.log("You removed", deletedEvent)
+        res.redirect('/projects')
+    })
+    .catch(error=>{
+        console.error
+    })
+})
 
 
 

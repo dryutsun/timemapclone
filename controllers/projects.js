@@ -28,12 +28,12 @@ router.get('/', isLoggedIn, (req,res) => {
 })
 
 
-// Individual View
-// ! This displays individual projects, but should display all events associated with that project.
+// GET ROUTE FOR CREATING NEW PROJECT
 router.get('/new', isLoggedIn, (req,res) => {
     res.render('./projects/new.ejs')
 })
 
+// CREATE ROUTE FOR CREATING NEW PROJECT
 router.post('/new', isLoggedIn, (req,res) =>{
     db.project.create({
         title: req.body.title,
@@ -44,9 +44,14 @@ router.post('/new', isLoggedIn, (req,res) =>{
         console.log(project)
     res.redirect('/projects')
     })
+    .catch((error) => {
+        console.error
+        res.status(400).send("404")
+})
 })
 
-
+// Individual View
+// ! This displays individual projects, but should display all events associated with that project.
 router.get('/:id', isLoggedIn, (req,res) => {
     db.project.findOne({ // Find One Project that meets this criteria
         where: { id: req.params.id },
@@ -65,6 +70,45 @@ router.get('/:id', isLoggedIn, (req,res) => {
 
 })
 
+
+// Individual Project Editing Routes
+router.get('/edit/:id', isLoggedIn, (req,res) => {
+    db.project.findOne({
+        where: {id: req.params.id},
+    })
+    .then((project)=>{
+        console.log(project)
+        res.render('./projects/edit.ejs', {project:project})
+    })
+})
+
+router.put('/edit/:id', isLoggedIn, (req,res) => {
+    db.project.findOne({
+        where: {id: req.params.id},
+    })
+    .then((project) => {
+        project.update({
+            title: req.body.title,
+            description: req.body.description,
+            userId: res.locals.currentUser.id
+        })
+    })
+    res.redirect('/projects')
+})
+
+// Individual Project Delete Routes
+router.delete('/:id', isLoggedIn, (req,res)=> {
+        db.project.destroy({
+            where: {id: req.params.id}
+        })
+        .then((deletedProject) => {
+            console.log("You removed", deletedProject)
+            res.redirect('/projects')
+        })
+        .catch(error=>{
+            console.error
+        })
+    })
 
 
 

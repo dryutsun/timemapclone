@@ -1,17 +1,28 @@
 <div class="text-center container">
-<h2><%= currentUser.name %>'s Profile</h2>
+<h1 class="display-2 profile-header"><%= currentUser.name %>'s Profile</h2>
 
 
 
-<a class="btn btn-primary" href="/projects/new" role="button">Add A New Project</a>
-<h1> Projects: </h1>
+
+<h2 class="display-4"> Projects </h1>
+<a class="btn btn-outline-light me-2 new-project" style="background-color: #D81B60;" href="/projects/new" role="button">Add A New Project</a>
 <div class="project-grid">
 <% project.forEach((project)=>{%>
-    <div class="card" style="outline: red dotted 1px; background-color:azure; width: 100%; height: 100%;">
+    <div class="card project-card" style="outline: red dotted 1px; width: 100%; height: 100%;">
+         <div class="card-actions">
+            <div class="edit-container">
+                <a class="btn btn-success button-left"  href="/projects/edit/<%= project.id %>" role="button">✎</a>
+            </div>
+            <form action="/projects/<%= project.id %>/?_method=DELETE" method="POST">
+                <div class="delete-container">
+                    <input class="btn btn-danger" style="color:white;" type="submit" value="✕">
+                </div>
+            </form>
+        </div>
         <a href="/projects/<%= project.id %>"><h1> <%= project.title %></h1></a>
-        <h3> <%= project.description %></h3>
-        <small><%= project.createdAt%></small>
-        <small><%= project.updatedAt%></small>
+        <h5> <%= project.description %></h5>
+       
+   
 
     </div>
 <%})%>
