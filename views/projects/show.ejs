@@ -18,7 +18,7 @@
     <li class="list-group-item">
         <div class="edit-container" style="display: flex; flex-direction: row; justify-content: flex-end;">
             <a class="btn btn-success" href="/events/edit/<%= event.id %>" role="button">✎</a>
-            <form action="/projects/<%= event.id %>/?_method=DELETE" method="POST">
+            <form action="/events/<%= event.id %>/?_method=DELETE" method="POST">
                 <div class="delete-container">
                     <input class="btn btn-danger" style="color:white;" type="submit" value="✕">
                 </div>
@@ -41,6 +41,7 @@
     <% }) %>
 </ul>
 </div>
+
 <script>
 const mapToken = '<%-process.env.MAPBOX_TOKEN%>'
 const events = <%-JSON.stringify(project.events)%>

@@ -7,7 +7,7 @@ const passport = require('./config/ppConfig')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const path = require('path')
-app.use('/static', express.static(path.join(__dirname, 'public')))
+
 const methodOverride = require('method-override')
 
 // views (ejs and layouts) set up
@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
 
 
-
+app.use('/static', express.static(path.join(__dirname, 'public')))
 // session middleware
 app.use(session({
     secret: process.env.SUPER_SECRET_SECRET,

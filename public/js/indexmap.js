@@ -21,7 +21,7 @@ map.addControl(
   );
 
 
-if (events.length > 1) {
+if (events.length >= 1) {
   events.forEach((eventData) => {
     // console.log([eventData.locationLon, eventData.locationLat])
     const marker = new mapboxgl.Marker()

@@ -68,6 +68,7 @@ router.put('/edit/:id', isLoggedIn,(req,res) => {
 }})
 
     .then((event) => {
+        let projectId = event.projectId
         event.update({
             title: req.body.title,
             date: req.body.date,
@@ -76,19 +77,23 @@ router.put('/edit/:id', isLoggedIn,(req,res) => {
             locationLon: req.body.locationLon,
             association: req.body.association,
             sourcedata: req.body.sourcedata,
-            comments: req.body.comments
+            comments: req.body.comments,
+            projectId: req.body.projectId
         })
-        res.redirect(`/projects/${event.projectId}`)
+        res.redirect(`/projects/${projectId}`)
     })
 })
 
 router.delete('/:id', isLoggedIn, (req,res)=> {
-    db.event.destroy({
-        where: {id: req.params.id}
-    })
-    .then((deletedEvent) => {
-        console.log("You removed", deletedEvent)
-        res.redirect('/projects')
+    db.event.findByPk(req.params.id)
+    .then(foundEvent => {
+        let projectId = foundEvent.projectId
+        foundEvent.destroy()
+
+        .then(deletedEvent => {
+        console.log("You Removed", deletedEvent)
+        res.redirect(`/projects/${projectId}`)
+    }) 
     })
     .catch(error=>{
         console.error
