@@ -8,14 +8,6 @@ const user = require('../models/user')
 const mapToken = process.env.MAPBOX_TOKEN
 const event = require('../models/event')
 
-// EVENTS DISPLAY
-
-
-
-
-
-
-
 
 // CREATE GET ROUTE. ASO GETTING PROJECT IDS FOR USER SELECTION.
 router.get('/new', isLoggedIn, (req,res)=> {
@@ -87,9 +79,9 @@ router.put('/edit/:id', isLoggedIn,(req,res) => {
 router.delete('/:id', isLoggedIn, (req,res)=> {
     db.event.findByPk(req.params.id)
     .then(foundEvent => {
+        // This is not good practice IIRC. Refactor later.
         let projectId = foundEvent.projectId
         foundEvent.destroy()
-
         .then(deletedEvent => {
         console.log("You Removed", deletedEvent)
         res.redirect(`/projects/${projectId}`)
@@ -99,7 +91,5 @@ router.delete('/:id', isLoggedIn, (req,res)=> {
         console.error
     })
 })
-
-
 
 module.exports = router;

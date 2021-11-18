@@ -1,0 +1,40 @@
+.event-wrapper {
+    justify-content: center;
+}
+
+.project-wrapper {
+    justify-content: center;
+}
+.map-container {
+    display:flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+}
+
+#map {
+    border-radius: 5px;
+    margin: 20px;
+    height: 500px;
+    width: 80%;
+    position: relative;
+}
+
+button {
+    margin: 8px 16px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+@media (max-width: 800px) {
+
+    .event-wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
