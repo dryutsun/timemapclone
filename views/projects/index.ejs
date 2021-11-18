@@ -12,11 +12,11 @@
         <div class="card project-card" style="outline: red dotted 1px;">
             <div class="card-actions">
                 <div class="edit-container">
-                    <a class="btn btn-success button-left"  href="/projects/edit/<%= project.id %>" role="button">✎</a>
+                    <a class="btn btn-success button-left"  href="/projects/edit/<%= project.id %>" role="button" aria-label="edit">✎</a>
                 </div>
                 <form action="/projects/<%= project.id %>/?_method=DELETE" method="POST">
                     <div class="delete-container">
-                        <input class="btn btn-danger" style="color:white;" type="submit" value="✕">
+                        <input class="btn btn-danger" style="color:white;" type="submit" value="✕"aria-label="delete">
                     </div>
                 </form>
             </div>

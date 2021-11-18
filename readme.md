@@ -5,6 +5,14 @@ This timemap software allows you to keep track of the location and places of eve
 
 I would like the timemap to be as open to the user as possible, i.e. it could also be used to track a missing cat. It could also be used to track where you had certain thoughts during the day and so forth.
 
+## Installation Instructions
+
+1. Clone this repository.
+2. Navigate to the timemap folder.
+3. Inside of the timemap folder, enter the following command `npm install`
+4. Sign up for Mapbox account and retrieve an API key.
+5. Inside of the public/js folder, find the following files indexmap.js and map.js and assign `mapboxgl.accessToken = <yourkey>`.
+
 
 ## Tech Stack
 - Postgres 
@@ -114,7 +122,7 @@ This will add popups to the map.
 
 ## MVP: (CHANGE TO USER STORIES)
 - [x] I would like to have my models and route stubs created. Forms should display the correct information.
-        - Need to stub project routes for new/edit/delete
+        - Need to stub project routes for \delete
 - [x]  I would like the map to display the "event" on the map.
 - [x]  Ideally, I would like for the user to be able to click on the screen and get lat-lon data for data entry. This should be put into the form. This must be done in a "new" view.
 
