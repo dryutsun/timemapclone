@@ -14,14 +14,14 @@
       <div class="field-item form-control-lg">  
           <label for="date">Date </label>
           <br>
-          <div id="datehelp" class="form-text small">Please enter your date in YYYY-MM-DD format.</div>
-          <input type="text" id="date" name="date" value="<%= event.date %>">
+          <div id="datehelp" class="form-text small">Please enter your date in MM/DD/YYYY format.</div>
+          <input type="date" id="date" name="date" value="<%= event.date %>">
         </div>
 
         <div class="field-item form-control-lg">  
           <label for="timeStart">Time Start</label>
           <br>
-          <input type="text" id="timeStart" name="timeStart" value="<%= event.timeStart %>">
+          <input type="time" id="timeStart" name="timeStart" value="<%= event.timeStart %>">
         </div>
 
         <div class="field-item form-control-lg">  

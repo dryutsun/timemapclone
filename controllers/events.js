@@ -61,6 +61,7 @@ router.put('/edit/:id', isLoggedIn,(req,res) => {
 
     .then((event) => {
         let projectId = event.projectId
+
         event.update({
             title: req.body.title,
             date: req.body.date,

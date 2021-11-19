@@ -31,8 +31,8 @@
             </div>
                 <p>
                 <h3><%= event.title %></h3>
-                <h6><%= event.date %></h6>
-                <h6>(<%= event.locationLat %>, <%= event.locationLon %>)</h6>
+                <h6><%= event.date.toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}) %> - <%= event.timeStart %></h6>
+                <h6>(<%= event.locationLat.toPrecision(5) %>, <%= event.locationLon.toPrecision(5) %>)</h6>
                 <h6><strong>Source:</strong> <%= event.sourcedata %></h6>
                 <h6><strong>Comments: </strong><%= event.comments %></h6>
             </p>
