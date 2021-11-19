@@ -11,16 +11,51 @@ I would like the timemap to be as open to the user as possible, i.e. it could al
 2. Navigate to the timemap folder.
 3. Inside of the timemap folder, enter the following command `npm install`
 4. Sign up for Mapbox account and retrieve an API key.
-5. Inside of the public/js folder, find the following files indexmap.js and map.js and assign `mapboxgl.accessToken = <yourkey>`.
+5. Inside of the public/js folder, find the following files indexmap.js and map.js and assign the maxboxgl.accessToken to your api key.
+
+```js
+mapboxgl.accessToken = <yourkey>
+```
+
+6. In the timemap folder, please enter ```node index.js``` or if you have `nodemon` globally installed, enter nodemon.
+7. Navigate to ```https://localhost:3000```
+8. If you do not have an account, please sign up for one.
+9. Log-in and enjoy!
+
+## CRUD Functionality
+
+### Projects Route
+| VERB  |URL PATTERN   | ACTION   | DESCRIPTION   | MODEL   |
+|---|---|---|---|---|
+|GET   | /projects  | Index  | Retrieve Project Index  | Project  |
+|GET  | /projects/new  | New (Read)  | Shows  a Form  To Create a New Project   | Project   |
+|POST  | /projects/new   | Create  | Creates a Project with a POST payload  | Project   |
+|GET   | /projects/:id   | Show  | Displays information about Specific Project (w/ Associated Events)  | Project & Events  |
+|GET   | /projects/edit/:id   | Edit   | Shows a Form for editing Individual Projects   | Project  |
+|PUT   | /projects/edit/:id  | Update | Updates the Specific Entry in the Projects Database   | Project   |
+|DELETE   | /projects/:id   | Delete   | Deletes the Specific Entry in the Projects Database  | Project  |
+
+### Events Route
+
+| VERB  |URL PATTERN   | ACTION   | DESCRIPTION   | MODEL   |
+|---|---|---|---|---|
+|GET   | /events/new  | New  | Shows Form to Create New Event  | Event  |
+|POST  | /events/new  | Create  | Creates an Event for a Project with a Post Payload   | Event   |
+|POST  | /events/edit/:id  | Show  | Shows a form for editing Individual Events  | Events   |
+|PUT   | /events/edit/:id   | Update  | Updates the specific entry in the Events Database  | Events  |
+|DELETE   | /events/edit/:id   | Delete   | Deletes the specific entry in the Events Database   | Events  |
+
+
+
+
 
 
 ## Tech Stack
 - Postgres 
 - Express.js
 - Node.js
-- Mapbox API
-- Axios
-- Sequelize
+- Mapbox API - Used to render maps and user submitted events, pull coordinate information from interaction events.
+- Sequelize - 
 - react-svg-timeline (would help mitigate the pains of doing this in CSS)
 - d3js for stretch goal forced directed graph? Would require more "relations". Stetch Goal.
 
@@ -36,10 +71,6 @@ I would like the timemap to be as open to the user as possible, i.e. it could al
 ---
 ![time_map_schema](readme/time_map_schema2.jpeg)
 
-API utilized:
-mapbox for interactive point detection/display?
-I would use the APIS ability to get point information and use that coordination information into my database along with other possible points of interest?
-I would also use the APIS ability to dispaly information on the map in order to create markers and popups.
 
 
 - Entity moved to stretch goal
