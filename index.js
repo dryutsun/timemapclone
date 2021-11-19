@@ -50,6 +50,11 @@ app.get('/', (req, res)=>{
     console.log("home")
 })
 
+app.get('/about', (req,res) => {
+    res.render('about')
+    console.log("about")
+})
+
 app.use('/projects', require('./controllers/projects'))
 app.use('/events', require('./controllers/events'))
 

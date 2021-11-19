@@ -9,7 +9,7 @@ const mapToken = process.env.MAPBOX_TOKEN
 const event = require('../models/event')
 
 
-// CREATE GET ROUTE. ASO GETTING PROJECT IDS FOR USER SELECTION.
+// CREATE GET ROUTE. ALSO GETTING PROJECT IDS FOR USER SELECTION.
 router.get('/new', isLoggedIn, (req,res)=> {
     db.project.findAll({
         where: { userId: res.locals.currentUser.id}
@@ -22,7 +22,7 @@ router.get('/new', isLoggedIn, (req,res)=> {
         res.status(400).send("404")
     })
 })
-// CREATE NEW POST ROUTE.
+// CREATE NEW POST ROUTE
 router.post('/new', isLoggedIn, (req,res)=>{
     db.event.create({
         title: req.body.title,
@@ -37,7 +37,7 @@ router.post('/new', isLoggedIn, (req,res)=>{
         projectId: req.body.projectId
     })
     .then((events)=>{
-    res.render('./projects/index.ejs')
+    res.redirect(`/projects/${req.body.projectId}`)
     })
 })
 
@@ -76,6 +76,8 @@ router.put('/edit/:id', isLoggedIn,(req,res) => {
     })
 })
 
+
+// INDIVIDUAL EVENT DELETE ROUTE
 router.delete('/:id', isLoggedIn, (req,res)=> {
     db.event.findByPk(req.params.id)
     .then(foundEvent => {

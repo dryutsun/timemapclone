@@ -33,6 +33,7 @@ db.event.create({
     sourcedata: "Bam Employee Phone Call",
     comments: "One of the Film Ticketing people mentioned they saw my cat at BAM Film Fest",
     entityId: 1,
+    projectId: 1,
 })
 .then(createdEvent => {
     console.log(createdEvent)
