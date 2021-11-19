@@ -7,7 +7,7 @@ console.log(lat, lon)
 const map = new mapboxgl.Map({ 
 container: 'map', 
 style: 'mapbox://styles/mapbox/streets-v11', 
-center: [lat.value,lon.value], // mapbox uses long/lat order 
+center: [parseFloat(lon.value), parseFloat(lat.value)], // mapbox uses long/lat order 
 zoom: 9 
 })
 
