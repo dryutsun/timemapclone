@@ -39,9 +39,6 @@ router.post('/new', isLoggedIn, (req,res)=>{
     .then((events)=>{
     res.redirect(`/projects/${req.body.projectId}`)
     })
-    .catch((error) => {
-        console.log(error)
-        res.status(400).send("404")
 })
 
 // INDIVIDUAL EVENT EDIT ROUTE
@@ -53,9 +50,6 @@ router.get('/edit/:id', isLoggedIn, (req,res) => {
         console.log(event)
         res.render('./events/edit.ejs', {event: event})
     })
-    .catch((error) => {
-        console.log(error)
-        res.status(400).send("404")
 })
 
 // INDIVIDUAL EVENT UPDATE ROUTE
@@ -81,9 +75,6 @@ router.put('/edit/:id', isLoggedIn,(req,res) => {
         })
         res.redirect(`/projects/${projectId}`)
     })
-    .catch((error) => {
-        console.log(error)
-        res.status(400).send("404")
 })
 
 
@@ -97,11 +88,10 @@ router.delete('/:id', isLoggedIn, (req,res)=> {
             .then(deletedEvent => {
             console.log("You Removed", deletedEvent)
             res.redirect(`/projects/${projectId}`)
-            }) 
+        }) 
     })
     .catch(error=>{
-        console.log(error)
-        res.status(400).send("404")
+        console.error
     })
 })
 
