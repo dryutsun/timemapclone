@@ -69,6 +69,9 @@
     <div id='map' style="height: 400px; width: 400px; position: relative;">
     </div>
 </div>
-
+    <script>
+      const token = <%-process.env.MAPBOX_TOKEN%>
+      console.log(token)
+    </script>
     <script src="/static/js/map.js">
     </script>

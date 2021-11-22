@@ -44,6 +44,8 @@
 <script>
 const events = <%-JSON.stringify(project.events)%>
 console.log("This is Events", events)
+const token = <%-process.env.MAPBOX_TOKEN%>
+console.log(token)
 </script>
 <script src="/static/js/indexmap.js">
 </script>
