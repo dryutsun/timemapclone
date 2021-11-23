@@ -5,6 +5,7 @@ This timemap software allows you to keep track of the location and places of eve
 
 I would like the timemap to be as open to the user as possible, i.e. it could also be used to track a missing cat. It could also be used to track where you had certain thoughts during the day and so forth.
 
+https://timemapclone.herokuapp.com/
 
 # Installation Instructions
 
